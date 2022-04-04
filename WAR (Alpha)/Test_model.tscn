@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://export202203251948419680.png" type="Texture" id=1]
+[ext_resource path="res://Test_model.gd" type="Script" id=2]
+[ext_resource path="res://export202203251952411750.png" type="Texture" id=3]
+[ext_resource path="res://export202203260436243190.png" type="Texture" id=4]
+[ext_resource path="res://export202203251948564720.png" type="Texture" id=5]
+[ext_resource path="res://export202203251952309660.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Back",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Back(side)",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Front(Side)",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Front",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 19.5164
+
+[node name="Test_model" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 294, 128 )
+frames = SubResource( 2 )
+animation = "Front"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 292, 206 )
+scale = Vector2( 2.5, 2 )
+shape = SubResource( 1 )
